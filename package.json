@@ -20,7 +20,7 @@
     "files": [
         "tasks",
         "Views",
-        "wwwwroot",
+        "wwwroot",
         "install.js",
         "gulpfile.js"
     ],
