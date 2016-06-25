@@ -1,6 +1,31 @@
 var gulp = require("gulp"),
-    insert= require("gulp-insert"),
-    grep = require("gulp-grep-contents");
+    insert= require("gulp-insert");
+
+    var gutil = require('gulp-util');
+    var through = require('through2');
+
+    var grep = function(regex, options) {
+    options = options || {};
+
+    var restoreStream = through.obj();
+
+    return through.obj(function(file, encoding, callback) {
+        if (file.isStream()) {
+        throw new gutil.PluginError('Stream not supported');
+        }
+
+        var match = regex.test(new String(file.contents))
+
+        var invert = !!options.invert;
+        if (invert && ! match || match && !invert) {
+        callback(null, file);
+        return;
+        }
+
+        restoreStream.write(file);
+        callback();
+    });
+    }
 
     var toprependViewImport = '@using MvcControlsToolkit.Core.Views \n'
     +'@using MvcControlsToolkit.Core.Transformations \n'
