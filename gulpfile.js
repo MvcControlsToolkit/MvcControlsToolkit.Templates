@@ -36,8 +36,12 @@ var gulp = require("gulp"),
     var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');\n";
 
     gulp.task('copy:files', function () {
-        return gulp.vn(["./Views/**/*.*", "./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })
+        return vn.src(["./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })
     .pipe(vn.dest("../..", {overwrite: false}));
+    });
+    gulp.task('copy:views', function () {
+        return vn.src(["./Views/**/*.*"], { base: '.' })
+    .pipe(vn.dest("../..", {overwrite: true}));
     });
 
     gulp.task('modify:viewimport', function () {
@@ -54,6 +58,6 @@ var gulp = require("gulp"),
     .pipe(gulp.dest("../.."));
     });
 
-    gulp.task("install", ["copy:files", "modify:viewimport", "modify:gulpfile"]);
+    gulp.task("install", ["copy:files", "copy:views", modify:viewimport", "modify:gulpfile"]);
 
     
