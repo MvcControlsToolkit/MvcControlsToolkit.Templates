@@ -1,5 +1,6 @@
 var gulp = require("gulp"),
-    insert= require("gulp-insert");
+    insert= require("gulp-insert"),
+    vn=require("vinyl-fs");
 
     var gutil = require('gulp-util');
     var through = require('through2');
@@ -35,20 +36,20 @@ var gulp = require("gulp"),
     var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');";
 
     gulp.task('copy:files', function () {
-        return gulp.src(["./Views/**/*.*", "./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })
-    .pipe(gulp.dest("../.."));
+        return gulp.vn(["./Views/**/*.*", "./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })
+    .pipe(vn.dest("../..", {overwrite: false}));
     });
 
     gulp.task('modify:viewimport', function () {
         return gulp.src(["../../Views/_ViewImports.cshtml"], { base: '../..' })
-        .pipe(grep(/MvcControlsToolkit.Core.Views/, {inverted: true}))
+        .pipe(grep(/MvcControlsToolkit.Core.Views/, {invert: true}))
         .pipe(insert.wrap(toprependViewImport, topappendViewImport))
     .pipe(gulp.dest("../.."));
     });
 
     gulp.task('modify:gulpfile', function () {
         return gulp.src(["../../gulpfile.js"], { base: '../..' })
-        .pipe(grep(/gulp-load-subtasks/, {inverted: true}))
+        .pipe(grep(/gulp-load-subtasks/, {invert: true}))
         .pipe(insert.prepend(toPrependGulpfile))
     .pipe(gulp.dest("../.."));
     });
