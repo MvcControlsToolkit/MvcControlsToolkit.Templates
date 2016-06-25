@@ -33,7 +33,7 @@ var gulp = require("gulp"),
     +'@using MvcControlsToolkit.Core.HtmlHelpers \n';
     var topappendViewImport = '\n@addTagHelper *, MvcControlsToolkit.Core'
     +'\n@addTagHelper *, MvcControlsToolkit.ControlsCore';
-    var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');";
+    var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');\n";
 
     gulp.task('copy:files', function () {
         return gulp.vn(["./Views/**/*.*", "./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })

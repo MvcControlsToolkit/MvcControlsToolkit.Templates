@@ -1,6 +1,6 @@
 {
     "name": "mvcct-templates",
-    "version": "1.0.0-alfa7",
+    "version": "1.0.0-alfa8",
     "homepage": "https://github.com/MvcControlsToolkit/MvcControlsToolkit.Templates",
     "description": "mvcct-templates installs content files needed by Mvc Controls Toolkit into asp.net core.",
     "main": "install.js",
