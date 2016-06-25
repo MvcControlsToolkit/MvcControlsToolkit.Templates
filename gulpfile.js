@@ -58,6 +58,6 @@ var gulp = require("gulp"),
     .pipe(gulp.dest("../.."));
     });
 
-    gulp.task("install", ["copy:files", "copy:views", modify:viewimport", "modify:gulpfile"]);
+    gulp.task("install", ["copy:files", "copy:views", "modify:viewimport", "modify:gulpfile"]);
 
     
