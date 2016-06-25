@@ -25,7 +25,10 @@
         "gulpfile.js"
     ],
     "dependencies": {
-        "gulp": ">=3.8.11"
+        "gulp": ">=3.8.11",
+        "gulp-insert": ">=0.5.0",
+        "gulp-grep-contents": ">=0.0.1",
+        "gulp-load-subtasks": ">=1.1.2"
     },
     "scripts": {
         "install": "node install.js"
