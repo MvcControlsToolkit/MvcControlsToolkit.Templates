@@ -27,4 +27,6 @@ var gulp = require("gulp"),
     .pipe(gulp.dest("../.."));
     });
 
+    gulp.task("install", ["copy:files", "modify:viewimport", "modify:gulpfile"]);
+
     
