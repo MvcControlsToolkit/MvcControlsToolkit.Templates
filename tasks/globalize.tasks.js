@@ -1,10 +1,11 @@
 ﻿module.exports = function (gulp) {
-    var uglify = uglify = require("gulp-uglify"),
-    concat = require("gulp-concat");
+    
     var groot = "./node_modules/globalize/dist/";
     var croot = "./node_modules/cldrjs/dist/"
     var globalizePath = "./wwwroot/lib/globalize"
     gulp.task('min:globalize', function () {
+        var uglify = uglify = require("gulp-uglify"),
+        concat = require("gulp-concat");
         return gulp.src([
         croot + "cldr.js",
         croot + "cldr/event.js",
