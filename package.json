@@ -1,6 +1,6 @@
 {
     "name": "mvcct-templates",
-    "version": "1.1.0-rc7",
+    "version": "1.1.0",
     "homepage": "https://github.com/MvcControlsToolkit/MvcControlsToolkit.Templates",
     "description": "mvcct-templates installs content files needed by Mvc Controls Toolkit into asp.net core.",
     "main": "install.js",
@@ -29,6 +29,7 @@
         "gulp": ">=3.8.11",
         "gulp-insert": ">=0.5.0",
         "gulp-uglify": ">=1.2.0",
+        "gulp-concat": ">=2.5.2",
         "gulp-util": ">=3.0.3",
         "through2": ">=0.6.3",
         "gulp-load-subtasks": ">=1.1.2",
