@@ -36,7 +36,7 @@ var gulp = require("gulp"),
     var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');\n";
 
     gulp.task('create:root', function () {
-        return vn.src(["./root/**/*.*"], { base: './root' })
+        return vn.src(["./root/**/*.*"], { base: './root/' })
     .pipe(vn.dest("../..", {overwrite: false}));
     });
     gulp.task('copy:files', function () {
