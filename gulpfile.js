@@ -35,6 +35,10 @@ var gulp = require("gulp"),
     +'\n@addTagHelper *, MvcControlsToolkit.ControlsCore';
     var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');\n";
 
+    gulp.task('create:root', function () {
+        return vn.src(["./root/**/*.*"], { base: './root' })
+    .pipe(vn.dest("../..", {overwrite: false}));
+    });
     gulp.task('copy:files', function () {
         return vn.src(["./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })
     .pipe(vn.dest("../..", {overwrite: false}));
@@ -58,6 +62,6 @@ var gulp = require("gulp"),
     .pipe(gulp.dest("../.."));
     });
 
-    gulp.task("install", ["copy:files", "copy:views", "modify:viewimport", "modify:gulpfile"]);
+    gulp.task("install", ["create:root", "copy:files", "copy:views", "modify:viewimport", "modify:gulpfile"]);
 
     
