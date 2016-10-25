@@ -30,7 +30,8 @@ var gulp = require("gulp"),
 
     var toprependViewImport = '@using MvcControlsToolkit.Core.Views \n'
     +'@using MvcControlsToolkit.Core.Transformations \n'
-    +'@using MvcControlsToolkit.Core.HtmlHelpers \n';
+    +'@using MvcControlsToolkit.Core.HtmlHelpers \n'
+    +'@using MvcControlsToolkit.Core.TagHelpers \n';
     var topappendViewImport = '\n@addTagHelper *, MvcControlsToolkit.Core'
     +'\n@addTagHelper *, MvcControlsToolkit.ControlsCore';
     var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');\n";
