@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+    "libraries": [
+        {
+            "provider": "unpkg",
+            "library": "bootstrap-datetime-picker@2.3.12",
+            "destination": "wwwroot/lib/smalot-bootstrap-datetimepicker"
+        },
+        {
+            "provider": "unpkg",
+            "library": "bootstrap-slider@9.2.0",
+            "destination": "wwwroot/lib/seiyria-bootstrap-slider",
+            "files": [
+                "dist/bootstrap-slider.js",
+                "dist/bootstrap-slider.min.js",
+                "dist/css/bootstrap-slider.css",
+                "dist/css/bootstrap-slider.min.css"
+            ]
+        },
+        {
+            "provider": "unpkg",
+            "library": "bootstrap-colorpicker@2.3.3",
+            "destination": "wwwroot/lib/bootstrap-colorpicker",
+            "files": [
+                "dist/css/bootstrap-colorpicker.css",
+                "dist/css/bootstrap-colorpicker.min.css",
+                "dist/js/bootstrap-colorpicker.js",
+                "dist/js/bootstrap-colorpicker.min.js",
+                "dist/img/bootstrap-colorpicker/alpha-horizontal.png",
+                "dist/img/bootstrap-colorpicker/alpha.png",
+                "dist/img/bootstrap-colorpicker/hue-horizontal.png",
+                "dist/img/bootstrap-colorpicker/hue.png",
+                "dist/img/bootstrap-colorpicker/saturation.png"
+            ]
+        },
+        {
+            "provider": "unpkg",
+            "library": "awesomplete@1.1.1",
+            "destination": "wwwroot/lib/awesomplete",
+            "files": [
+                "awesomplete.js",
+                "awesomplete.min.js",
+                "awesomplete.css"
+            ]
+        },
+        {
+            "provider": "unpkg",
+            "library": "jquery-validation-unobtrusive-extensions@1.0.4",
+            "destination": "wwwroot/lib/jquery-validation-unobtrusive-extensions",
+            "files": [
+                "jquery-validation-unobtrusive.d.ts",
+                "jquery.validate.unobtrusive.dynamic.js",
+                "jquery.validate.unobtrusive.dynamic.d.ts",
+                "jquery.validation.d.ts",
+                "jquery.validate.unobtrusive.globalize.min.js",
+                "jquery.validate.unobtrusive.dynamic.min.js",
+                "jquery.validate.unobtrusive.extensions.min.js"
+            ]
+        },
+        {
+            "provider": "unpkg",
+            "library": "bootstrap-html5-fallback@1.0.3",
+            "destination": "wwwroot/lib/bootstrap-html5-fallback"
+
+        },
+        {
+            "provider": "unpkg",
+            "library": "mvcct-enhancer@1.1.0",
+            "destination": "wwwroot/lib/mvcct-enhancer"
+        },
+        {
+            "provider": "unpkg",
+            "library": "mvcct-controls@1.0.8",
+            "destination": "wwwroot/lib/mvcct-controls"
+        },
+        {
+            "provider": "unpkg",
+            "library": "mvcct-odata@1.0.2",
+            "destination": "wwwroot/lib/mvcct-odata",
+            "files": [
+                "dest/global/mvcct.odata.js",
+                "dest/global/mvcct.odata.min.js",
+                "dest/global/mvcct.odata.js.map",
+                "dest/global/mvcct.odata.min.js.map",
+                "dest/global/mvcct.odata.d.ts"
+            ]
+        }
+
+    ]
+}

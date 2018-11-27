@@ -1,8 +1,27 @@
 var gulp = require("gulp"),
     insert= require("gulp-insert"),
-    vn=require("vinyl-fs");
+    vn=require("vinyl-fs"),
+    fs = require("fs");
+    var initObj={
+        "version": "1.0",
+        "defaultProvider": "cdnjs",
+          "libraries": [
+              
+          ]
+      };
 
-    var gutil = require('gulp-util');
+    if(fs.existsSync("../../libman.json")){
+        initObj = JSON.parse(fs.readFileSync("../../libman.json", 'utf8'));
+        if(!initObj["libraries"]){
+            initObj["libraries"]=[];
+        }
+        
+    }
+    var newLibman=JSON.parse(fs.readFileSync("./process/libman.json", 'utf8'))["libraries"];
+    initObj.libraries=initObj.libraries.concat(newLibman);
+    fs.writeFileSync("../../libman.json", JSON.stringify(initObj, null, 4));
+
+    
     var through = require('through2');
 
     var grep = function(regex, options) {
@@ -11,10 +30,6 @@ var gulp = require("gulp"),
     var restoreStream = through.obj();
 
     return through.obj(function(file, encoding, callback) {
-        if (file.isStream()) {
-        throw new gutil.PluginError('Stream not supported');
-        }
-
         var match = regex.test(new String(file.contents))
 
         var invert = !!options.invert;
@@ -37,9 +52,10 @@ var gulp = require("gulp"),
     var toPrependGulpfile = "\nrequire('gulp-load-subtasks')('tasks');\n";
 
     gulp.task('create:root', function () {
-        return vn.src(["./root/**/*.*"], { base: './root/' })
-    .pipe(vn.dest("../..", {overwrite: false}));
+            return vn.src(["./root/**/*.*"], { base: './root/' })
+            .pipe(vn.dest("../..", {overwrite: false}));
     });
+    
     gulp.task('copy:files', function () {
         return vn.src(["./wwwroot/**/*.*", "./tasks/**/*.*"], { base: '.' })
     .pipe(vn.dest("../..", {overwrite: false}));
@@ -63,6 +79,8 @@ var gulp = require("gulp"),
     .pipe(gulp.dest("../.."));
     });
 
-    gulp.task("install", ["create:root", "copy:files", "copy:views", "modify:viewimport", "modify:gulpfile"]);
+    gulp.task("install", gulp.series("create:root", "copy:files", "copy:views", "modify:viewimport", "modify:gulpfile", function(done){
+        done();
+    }));
 
     
