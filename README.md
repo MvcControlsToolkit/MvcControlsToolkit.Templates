@@ -1,4 +1,7 @@
 # mvcct-templates
+
+**current version:** 1.2.0.
+
 mvcct-templates installs content files needed by the Mvc Controls Toolkit into an asp.net core project. 
 It is available on npm. Just install it after you have installed all other npm and Bower dependencies, 
 and it'll add:
@@ -9,6 +12,7 @@ and it'll add:
     * create a minimized version of the globalize library under wwwroot/lib/globalize (you may add more modules if needed by editing this file), and to move culture 
       files to deploy under wwwroot/lib/globalize.
     * minimize the mvcct-enhancer startup+options file
+4. update or create a libman.json file with the JavaScript libraries from point 1 partial views
 
 **Important:** 1.1.2 version fixed a JavaScript critical run. Developers, who scaffolded a project prior to that version must fix manually the bug, since the mvcct-templates can't be run twice on the same project. The fix is as follows:
 
